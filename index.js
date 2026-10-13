@@ -5,14 +5,18 @@ const app = express();
 const PORT = 3000;
 
 // Home page
+
 app.get("/", (req, res) => {
-  res.send("Hello, IS117! Your web server is working.");
+    res.sendFile(__dirname + "/public/index.html");
 });
 
+
 // About page
+
 app.get("/about", (req, res) => {
-  res.send("This is my IS117 web server project.");
+    res.sendFile(__dirname + "/public/about.html");
 });
+
 
 // 404 page
 app.use((req, res) => {
@@ -23,7 +27,7 @@ app.use((req, res) => {
 
 if (require.main === module) {
   app.listen(PORT, () => {
-    console.log(`Server running at http://localhost:${PORT}`);
+    console.log(`IS117 server running at http://localhost:${PORT}`);
   });
 }
 
